@@ -1,6 +1,6 @@
 ## Dil-Foods Analytics
 
-Welcome to the Dil-Foods Analytics! This repository contains a responsive and interactive dashboard that visualizes data from a fictional e-commerce platform. With the help of different chart types using the Chart.js library and react-chartjs-2 library, you can gain insights into various aspects of our business data. This project was developed within 72 hours.
+Welcome to the Dil-Foods Analytics! This repository hosts a responsive and interactive dashboard for visualizing data from a fictional e-commerce platform, developed using Chart.js and react-chartjs-2 libraries within 72 hours.
 
 ## Features
 
