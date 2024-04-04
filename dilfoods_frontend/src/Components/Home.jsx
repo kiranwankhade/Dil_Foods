@@ -7,13 +7,14 @@ import BarChart from "./BarChart";
 import { LuUsers } from "react-icons/lu";
 import { FcSalesPerformance } from "react-icons/fc";
 import { GiReceiveMoney } from "react-icons/gi";
-import { generateRandomColorArray } from "../CommonFunctions/ColorRandom";
+import { generateRandomColor, generateRandomColorArray } from "../CommonFunctions/ColorRandom";
 import StasticsCards from "./StasticsCards";
 import DoughnutCharts from "./DoughnutCharts";
 
 const Home = ({ chartData, bestSelling }) => {
   const metrics = calculateData(chartData);
-  const pieChartData = {
+
+  const doughnutChartData = {
     labels: chartData?.map((data) => data.month),
     datasets: [
       {
@@ -25,6 +26,9 @@ const Home = ({ chartData, bestSelling }) => {
       },
     ],
   };
+
+  console.log('doughnutChartData:', doughnutChartData)
+
   const bestSellingProduct = {
     labels: bestSelling?.map((data) => data.name),
     datasets: [
@@ -37,6 +41,8 @@ const Home = ({ chartData, bestSelling }) => {
       },
     ],
   };
+  console.log('bestSellingProduct:', bestSellingProduct)
+
   const lineChartData = {
     labels: chartData?.map((data) => data.month),
     datasets: [
@@ -49,6 +55,8 @@ const Home = ({ chartData, bestSelling }) => {
       },
     ],
   };
+
+  console.log('lineChartData:', lineChartData)
 
   const barChartData = {
     labels: chartData?.map((data) => data.month),
@@ -63,7 +71,24 @@ const Home = ({ chartData, bestSelling }) => {
     ],
   };
 
-  return (
+  console.log('barChartData:', barChartData)
+
+// Calculate maximum values
+console.log('chartData:', chartData)
+const maxTotalUsers = Math.max(...chartData.map(data => data.userActivity));
+const maxTotalRevenue = Math.max(...chartData.map(data => data.revenue));
+const maxTotalSales = Math.max(...chartData.map(data => data.sales));
+console.log('maxTotalUsers:', maxTotalUsers)
+
+// Calculate progress percentages
+const totalUsersProgress = maxTotalUsers !== 0 ? (metrics.totalUsers / maxTotalUsers) * 100 : 0;
+const totalRevenueProgress = maxTotalRevenue !== 0 ? (metrics.totalRevenue / maxTotalRevenue) * 100 : 0;
+const totalSalesProgress = maxTotalSales !== 0 ? (metrics.totalSales / maxTotalSales) * 100 : 0;
+
+  console.log('totalSalesProgress:', totalSalesProgress.toFixed(2))
+
+  
+ return (
     <>
       <SimpleGrid
         mt="26px"
@@ -73,16 +98,22 @@ const Home = ({ chartData, bestSelling }) => {
         <StasticsCards
           title={"Total Users Visited"}
           stat={metrics.totalUsers}
+          progress={totalUsersProgress}
+          color={generateRandomColor()}
           icon={<LuUsers size={"2em"} color="#e81e3e" />}
         />
         <StasticsCards
           title={"Total Revenue"}
-          stat={" $ " + metrics.totalRevenue}
+          stat={" ₹ " + metrics.totalRevenue}
+          progress={totalRevenueProgress}
+          color={generateRandomColor()}
           icon={<GiReceiveMoney size={"2em"} />}
         />
         <StasticsCards
           title={"Total Sales"}
           stat={metrics.totalSales}
+          progress={totalSalesProgress}
+          color={generateRandomColor()}
           icon={<FcSalesPerformance size={"2em"} />}
         />
       </SimpleGrid>
@@ -111,7 +142,7 @@ const Home = ({ chartData, bestSelling }) => {
           p={"12px"}
           borderRadius={"12px"}
         >
-          <DoughnutCharts data={pieChartData} aspectRatio={1 / 1} />
+          <DoughnutCharts data={doughnutChartData} aspectRatio={1 / 1} />
         </Box>
       </SimpleGrid>
 
@@ -143,7 +174,7 @@ const Home = ({ chartData, bestSelling }) => {
             />
             <StasticsCards
               title={"Average Revenue"}
-              stat={" $ " + Math.floor(metrics.averageRevenuePerMonth)}
+              stat={" ₹ " + Math.floor(metrics.averageRevenuePerMonth)}
               icon={<GiReceiveMoney size={"3em"} />}
             />
           </SimpleGrid>

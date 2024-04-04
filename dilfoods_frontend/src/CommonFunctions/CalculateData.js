@@ -8,8 +8,11 @@ export const calculateData = (data) => {
   
     data.forEach((item) => {
       totalSales += item.sales;
+      // console.log('totalSales:', totalSales)
       totalRevenue += item.revenue;
+      console.log('totalRevenue:', totalRevenue)
       totalUsers += item.userActivity;
+      // console.log('totalUsers:', totalUsers)
   
   
       // Calculating sales and revenue by year
