@@ -55,11 +55,18 @@ Explore the various charts and data visualizations to gain insights into the per
 
 
 ##Screens of Project:
+
 ![DilFoods1](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/a4835873-a184-43b4-9618-d0c463fae75f)
+
 ![DilFoods2](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/6630132a-5838-4df1-85c5-26cf73fce641)
+
 ![DilFoods3](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/802897f1-4a49-4527-aa36-79446cf7487f)
+
 ![DilFoods4](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/b417ca0c-0c59-44c8-bcd6-0f28132bfc2d)
+
 ![DilFoods5](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/5f8dbb91-d320-4e83-976b-451c386bb16e)
+
 ![DilFoods6](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/903a7c45-0dfa-4f1c-8129-0032aac99f4c)
+
 ![DilFoods7](https://github.com/kiranwankhade/Dil_Foods/assets/49937312/82c27eaf-ffcd-4ad7-8b67-91ad128b7ef1)
 
