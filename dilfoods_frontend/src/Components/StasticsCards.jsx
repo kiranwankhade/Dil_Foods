@@ -12,25 +12,28 @@ const StasticsCards = (props) => {
       borderColor={useColorModeValue("gray.800", "gray.500")}
       rounded={"lg"}
     >
-      <Flex justifyContent={"space-between"}>
-        <Box pl={{ base: 2, md: 1 }}>
-          <StatLabel fontWeight={"medium"} isTruncated  color="#46b6e2">
-            {title}
-          </StatLabel>
-          <StatNumber fontSize={"2xl"} fontWeight={"medium"} textAlign={"left"}>
-            {stat}
-          </StatNumber>
+      <Flex justifyContent={"space-between"} alignItems={'flex-start'} gap={'1rem'}>
+        <Flex justifyContent={"space-between"} gap={'1rem'} >
+          <Box pl={{ base: 2, md: 1 }}>
+            <StatLabel fontWeight={"medium"} isTruncated  color="#46b6e2">
+              {title}
+            </StatLabel>
+            <StatNumber fontSize={"2xl"} fontWeight={"medium"} textAlign={"left"}>
+              {stat}
+            </StatNumber>
+            
+          </Box>
+          <Box
+            my={"auto"}
+            color={useColorModeValue("gray.800", "gray.200")}
+            alignContent={"center"}
+          >
+            {icon}
+          </Box>
           
-        </Box>
-         
-        <Box
-          my={"auto"}
-          color={useColorModeValue("gray.800", "gray.200")}
-          alignContent={"center"}
-        >
-          {icon}
-        </Box>
 
+        </Flex>
+      
         <Box >
         {progress !== undefined && (
               <CircularProgress size='60px'  thickness='7px'  value={progress.toFixed(1)/100 * 10}  color={color || "teal"}>
